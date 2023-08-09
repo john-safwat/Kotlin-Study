@@ -1,38 +1,22 @@
 fun main() {
-    sortNumbers(firstNumber = readDoubleNumber() , secondNumber = readDoubleNumber() , thirdNumber = readDoubleNumber())
+    sortData(4.0, 9.0 , 2.5 , 32.2,34.2 ,3.3)
 }
 
-// function to sort the numbers
-fun sortNumbers(firstNumber:Double , secondNumber:Double , thirdNumber:Double){
-    if(firstNumber < secondNumber){
-        if(firstNumber < thirdNumber){
-            println(firstNumber)
-            if(secondNumber<thirdNumber){
-                println(secondNumber)
-                println(thirdNumber)
-            }else {
-                println(thirdNumber)
-                println(secondNumber)
+fun sortData(vararg numbers: Double){
+    for(i in numbers.indices){
+        var swapped = false
+        for (j in 0..<numbers.size-i-1){
+            if(numbers[j] > numbers[j+1]){
+                val temp = numbers[j]
+                numbers[j] = numbers[j+1]
+                numbers[j+1] = temp
+                swapped = true;
             }
-        }else{
-            println(thirdNumber)
-            println(firstNumber)
-            println(secondNumber)
         }
-    }else {
-        if(secondNumber < thirdNumber){
-            println(secondNumber)
-            if(firstNumber<thirdNumber){
-                println(firstNumber)
-                println(thirdNumber)
-            }else {
-                println(thirdNumber)
-                println(firstNumber)
-            }
-        }else{
-            println(thirdNumber)
-            println(secondNumber)
-            println(firstNumber)
+        if(!swapped){
+            break
         }
     }
+
+    for (i in numbers.indices) println(numbers[i])
 }
