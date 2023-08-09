@@ -9,3 +9,8 @@ fun readDoubleNumber(): Double {
     print("Enter Number : ")
     return readln().toDouble();
 }
+
+fun  readCharacter(): Char {
+    print("Enter Character : ")
+    return readln()[0];
+}
