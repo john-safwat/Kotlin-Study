@@ -3,7 +3,7 @@ fun main() {
 }
 
 fun sortData(vararg numbers: Double){
-    for(i in numbers.indices){
+    for(i in numbers.indices - (numbers.size-1)){
         var swapped = false
         for (j in 0..<numbers.size-i-1){
             if(numbers[j] > numbers[j+1]){

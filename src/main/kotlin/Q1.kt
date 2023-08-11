@@ -1,5 +1,5 @@
 fun main() {
-   counter()
+    primeNumberCheck(readIntNumber())
 }
 
 fun printFirst10Numbers(){ for ( i in 1..10) println(i) }
@@ -41,4 +41,44 @@ fun counter(){
         }
     }
     println("You Entered $posCount Positive numbers And $nigCount Negative and $zeroCount Zero")
+}
+
+fun calcFactorial(number:Int):Int{
+    return if(number == 1){
+        number
+    } else {
+        number*calcFactorial(number-1)
+    }
+}
+
+fun reverseNumber(number:Int){
+    val value = number.toString()
+    println(value.reversed())
+}
+
+fun dividableNumber() {
+    var start = readIntNumber()
+    var end = readIntNumber()
+
+    if(start > end){
+        val temp = start;
+        start =end;
+        end = temp
+    }
+
+    for(i in start..end){
+        if(i%5==0 && i%6==0){
+            println(i)
+        }
+    }
+}
+
+fun primeNumberCheck(number :Int) {
+    for(i in 2..<number){
+        if(number%i ==0){
+            println("Number isn't prime number")
+            return
+        }
+    }
+    println("number is prime")
 }
