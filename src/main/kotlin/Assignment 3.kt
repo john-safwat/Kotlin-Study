@@ -1,5 +1,5 @@
 fun main() {
-    println("The Average of the Numbers = ${calcAverage(readArrayOfIntegers())}")
+    println("The Second Smallest Number of the Numbers = ${getSecondDSmallestNumber(readArrayOfIntegers())}")
 }
 
 // function to read array from user
@@ -34,4 +34,23 @@ fun calcAverage(array:ArrayList<Int>):Double{
         sum+= array[i]
     }
     return sum.toDouble()/array.size
+}
+
+// function to find the second-smallest number in list
+fun getSecondDSmallestNumber(numbers:ArrayList<Int>): Int{
+    for( i in numbers.indices){
+        var swapped = false
+        for(j in i..<numbers.size-i-1){
+            if(numbers[j] > numbers[j+1]){
+                val temp = numbers[j]
+                numbers[j] = numbers[j+1]
+                numbers[j+1] = temp
+                swapped = true
+            }
+        }
+        if(!swapped){
+            return numbers[1]
+        }
+    }
+    return numbers[1]
 }
